@@ -23,13 +23,12 @@ function requiredRange(range) {
         if (item.prices[1] >= range[0] && item.prices[0] <= range[1])
             return item;
     });
-    return result
-        .sort((a, b) => (a.prices[0] > b.prices[0] ? 1 : -1))
-        .sort((a, b) => {
+    return result.sort((a, b) => {
         if (a.prices[0] === b.prices[0])
             return a.weight > b.weight ? 1 : -1;
+        return a.prices[0] > b.prices[0] ? 1 : -1;
     });
 }
-console.log(JSON.stringify(requiredRange([null, 200])));
-console.log(JSON.stringify(requiredRange([100, 350])));
-console.log(JSON.stringify(requiredRange([200, null])));
+//console.log(JSON.stringify(requiredRange([null, 200])));
+//console.log(JSON.stringify(requiredRange([100, 350])));
+//console.log(JSON.stringify(requiredRange([200, null])));
